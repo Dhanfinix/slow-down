@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -13,11 +15,34 @@ android {
         minSdk = 26
         targetSdk = 36
         versionCode = 1
-        versionName = "0.1.0"
+        versionName = "1.0.0"
+    }
+    // Release signing reads a properties file outside the repo. Path: -PslowdownKeystoreProps=... or
+    // env SLOWDOWN_KEYSTORE_PROPS, default ~/.slowdown-release/keystore.properties.
+    // shortcut: when the file is absent the release APK is built unsigned, so a clean clone still builds.
+    val ksProps = Properties()
+    val ksFile = File(
+        (project.findProperty("slowdownKeystoreProps") as String?)
+            ?: System.getenv("SLOWDOWN_KEYSTORE_PROPS")
+            ?: "${System.getProperty("user.home")}/.slowdown-release/keystore.properties"
+    )
+    if (ksFile.isFile) ksFile.inputStream().use { ksProps.load(it) }
+    signingConfigs {
+        if (ksProps.containsKey("storeFile")) {
+            create("release") {
+                storeFile = file(ksProps.getProperty("storeFile"))
+                storePassword = ksProps.getProperty("storePassword")
+                keyAlias = ksProps.getProperty("keyAlias")
+                keyPassword = ksProps.getProperty("keyPassword")
+            }
+        }
     }
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            signingConfigs.findByName("release")?.let { signingConfig = it }
         }
     }
     compileOptions {
