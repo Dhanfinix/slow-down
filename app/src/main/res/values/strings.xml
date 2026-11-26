@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Slow Down</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_stats">Stats</string>
+    <string name="nav_settings">Settings</string>
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="finish">Start</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="reset">Reset</string>
+    <string name="grant">Allow</string>
+    <string name="page_of">Page %1$d of %2$d</string>
+
+    <!-- Onboarding -->
+    <string name="ob1_title">Scrolling never ends</string>
+    <string name="ob1_body">Feeds are made to keep you in. Minutes turn into hours before you notice.</string>
+    <string name="ob2_title">So we slow the internet</string>
+    <string name="ob2_body">After a long scroll, Slow Down makes your connection crawl. Videos stall and feeds load slowly.</string>
+    <string name="ob3_title">You put the phone down</string>
+    <string name="ob3_body">When scrolling stops being fun, you stop. Step away and the speed comes back.</string>
+    <string name="perm_title">Allow three things</string>
+    <string name="perm_vpn">VPN connection</string>
+    <string name="perm_vpn_why">Slows traffic on this phone. Nothing leaves your device.</string>
+    <string name="perm_notif">Notifications</string>
+    <string name="perm_notif_why">Tells you when it slows you down.</string>
+    <string name="perm_usage">Usage access</string>
+    <string name="perm_usage_why">Lets the app see how long you stay in social apps.</string>
+    <string name="perm_usage_skip">Without usage access you can still slow yourself down by hand. Automatic watching stays off.</string>
+    <string name="perm_granted">Allowed</string>
+    <string name="perm_not_granted">Not allowed yet</string>
+
+    <!-- Home -->
+    <string name="status_off">Off</string>
+    <string name="status_watching">Watching</string>
+    <string name="status_slowed">Slowed</string>
+    <string name="hero_off_sub">Nothing is slowed right now.</string>
+    <string name="hero_slowed_sub">Your internet is crawling on purpose.</string>
+    <plurals name="hero_watching_sub">
+        <item quantity="one">Slows you after %d minute of scrolling.</item>
+        <item quantity="other">Slows you after %d minutes of scrolling.</item>
+    </plurals>
+    <string name="live_speed">%1$s · down %2$s · up %3$s</string>
+    <string name="live_starting">Starting…</string>
+    <string name="timer_left">%1$s left</string>
+    <string name="manual_title">Manual Slowdown</string>
+    <string name="manual_sub">Introduce healthy friction on demand</string>
+    <string name="manual_speed_label">Network Ceiling</string>
+    <string name="manual_timer_label">Duration</string>
+    <string name="manual_speed">Speed</string>
+    <string name="manual_timer">Timer</string>
+    <string name="timer_none">Indefinite</string>
+    <string name="timer_short">%dm</string>
+    <string name="timer_min">%d min</string>
+    <string name="slow_me_now">Slow me down now</string>
+    <string name="stop_slowing">Stop slowing</string>
+    <string name="vpn_needed_hint">Android will ask for VPN permission the first time.</string>
+    <string name="watch_title">Guardian Watching</string>
+    <plurals name="watch_active">
+        <item quantity="one">Active on %d watched app</item>
+        <item quantity="other">Active on %d watched apps</item>
+    </plurals>
+    <string name="watch_desc">Slows you down on its own after a long scroll.</string>
+    <string name="watch_manual_only">Needs usage access. Without it only the manual button works.</string>
+    <string name="grant_usage">Open usage access</string>
+    <string name="today_title">Today\'s Balance</string>
+    <string name="stat_screen_time">Screen scroll</string>
+    <string name="stat_slowed">Throttles triggered</string>
+    <string name="stat_saved">Life reclaimed</string>
+
+    <!-- Settings -->
+    <string name="set_detection">Detection</string>
+    <string name="set_threshold">Slow me after</string>
+    <string name="set_cooldown">Release after away for</string>
+    <string name="minutes_value">%d min</string>
+    <string name="minutes_unit">min</string>
+    <string name="set_speed_section">Slow speed</string>
+    <string name="set_speed">Speed</string>
+    <string name="set_mode">What to slow</string>
+    <string name="mode_watched">Watched apps</string>
+    <string name="mode_all">Whole phone</string>
+    <string name="set_apps">Watched apps</string>
+    <plurals name="apps_selected">
+        <item quantity="one">%d app selected</item>
+        <item quantity="other">%d apps selected</item>
+    </plurals>
+    <string name="choose_apps">Choose apps</string>
+    <string name="set_quiet">Quiet hours</string>
+    <string name="quiet_desc">Never start slowing during these hours.</string>
+    <string name="quiet_from">From %s</string>
+    <string name="quiet_to">To %s</string>
+    <string name="set_data">Data</string>
+    <string name="reset_stats">Reset stats</string>
+    <string name="reset_confirm">This deletes all your history. It cannot be undone.</string>
+    <string name="search_apps">Search apps</string>
+    <string name="select_popular">Select popular apps</string>
+    <string name="clear_all">Clear selection</string>
+
+    <!-- Stats -->
+    <string name="chart_scroll">Minutes in watched apps</string>
+    <string name="chart_slowed">Times slowed</string>
+
+    <!-- Notifications -->
+    <string name="channel_watch">Watching</string>
+    <string name="channel_watch_desc">Shows while Slow Down watches for doom scrolling.</string>
+    <string name="channel_alert">Slow down alerts</string>
+    <string name="channel_alert_desc">Gentle notice when your internet is slowed.</string>
+    <string name="watch_notif_title">Slow Down is watching</string>
+    <string name="watch_notif_text">Checking your scroll time.</string>
+    <string name="watch_notif_no_usage">Usage access is off, so nothing can be detected.</string>
+    <string name="action_stop_watching">Stop watching</string>
+    <string name="action_stop_slowing">Stop slowing</string>
+    <string name="alert_title">Time to look up</string>
+    <string name="alert_text">You have been scrolling %d min. Slowing down.</string>
+    <string name="resume_title">Resume watching?</string>
+    <string name="resume_text">Your phone restarted. Tap to turn Slow Down watching back on.</string>
+
+    <!-- Redesign -->
+    <string name="pace_badge">Pacing connection · Breathing room</string>
+    <string name="badge_active">Active</string>
+    <string name="pace_line">Throttled pace · ↓ %1$s · ↑ %2$s</string>
+    <string name="pause_quote">There is nothing urgent demanding your glance.</string>
+    <string name="release_speed">Release speed</string>
+    <string name="breath_title">Take one slow breath</string>
+    <string name="breath_body">Notice your hands holding this stone. Unclench your shoulders.</string>
+    <string name="kbps_down">kbps ↓</string>
+    <string name="stats_title">Your Rhythm &amp; Exhales</string>
+    <string name="stats_week_badge">This week</string>
+    <string name="stats_week_value">%s slowed</string>
+    <string name="chart_scroll_sub">Time spent in watched apps</string>
+    <string name="chart_slowed_sub">Friction interceptions deployed</string>
+    <string name="chart_avg">Avg %s</string>
+    <string name="chart_total">total</string>
+    <string name="stats_privacy">All numbers stay on your device. Nothing is sent anywhere.</string>
+    <string name="set_tag">Friction Calibration</string>
+    <string name="set_title">Preferences &amp; Limits</string>
+    <string name="set_intro">Tune your digital landscape. Gentle speed limits make mindless doomscrolling tangible without cold turkey lockouts.</string>
+    <string name="set_target">Target Speed Limit</string>
+    <string name="set_target_sub">Active throttle policy</string>
+    <string name="set_thresholds">Throttling Thresholds</string>
+    <string name="set_threshold_sub">Continuous scroll time allowed before slowing begins.</string>
+    <string name="set_cooldown_sub">How long you must be away before full speed returns.</string>
+    <string name="set_cooldown_unit">min away</string>
+    <string name="set_decel">Deceleration Speed</string>
+    <string name="set_presets">Historical Presets</string>
+    <string name="set_default_suffix">(Default)</string>
+    <string name="set_precision">Precision Deceleration</string>
+    <string name="set_info_slow">%s lets text and small images load slowly, while video feeds stall. A natural cue to pause.</string>
+    <string name="set_info_fast">%s lets most pages load. Video will buffer more often.</string>
+    <string name="set_scope">Target Scope</string>
+    <string name="scope_watched_sub">Only slows the apps you choose.</string>
+    <string name="scope_all_sub">Slows all traffic on the phone once your threshold is met.</string>
+    <string name="scope_all">Entire device</string>
+    <string name="scope_watched">Watched apps only</string>
+    <string name="manage_apps">Manage Watched Apps</string>
+    <string name="quiet_title">Quiet Hours</string>
+    <string name="quiet_switch">Disable during sleep</string>
+    <string name="quiet_switch_sub">Never starts slowing during these hours.</string>
+    <string name="quiet_bedtime">Bedtime</string>
+    <string name="quiet_wake">Wake time</string>
+    <string name="privacy_title">Data &amp; Privacy</string>
+    <string name="privacy_vpn">Local VPN Filter</string>
+    <string name="privacy_vpn_sub">Runs on this device. Nothing leaves your phone.</string>
+    <string name="reset_all">Reset all statistics</string>
+    <string name="reset_all_sub">Clears your slowdown history and time counts.</string>
+    <string name="ob_step">Step %1$d of %2$d</string>
+    <string name="ob_step_perm">Step %1$d of %2$d · System permissions</string>
+    <string name="perm_headline">A gentle pause for your screen time</string>
+    <string name="perm_intro">Slow Down uses local Android features to give your fingers and mind a natural cue to exhale.</string>
+    <string name="perm_commute_title">Born on the evening commute</string>
+    <string name="perm_commute_body">Made not to shame or block, but to bring back that slow, peaceful feeling of a train rolling into your quiet stop.</string>
+    <string name="perm_required">Required for throttling</string>
+    <string name="perm_recommended">Recommended</string>
+    <string name="perm_optional">Optional automatic trigger</string>
+    <string name="perm_vpn_mono">Runs on this device</string>
+    <string name="perm_notif_quote">“You have been scrolling 20 min. Slowing down.” with a quick stop action.</string>
+    <string name="perm_usage_long">Lets the app notice when you stay in Instagram, TikTok, Reddit and other feeds. If skipped, the manual “Slow me down now” button still works.</string>
+    <string name="perm_skippable">Can be skipped for manual-only mode</string>
+    <string name="perm_enabled">Enabled</string>
+    <string name="perm_grant_access">Grant access</string>
+    <string name="begin">Begin mindful scrolling</string>
+    <string name="skip_manual">Skip to manual mode</string>
+    <string name="apps_selected_sub">%d chosen</string>
+</resources>
