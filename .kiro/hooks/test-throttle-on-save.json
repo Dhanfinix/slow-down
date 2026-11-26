@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Run throttle unit tests on save",
+      "description": "The throttle engine has 22 JVM tests. Run them when engine code changes.",
+      "trigger": "PostFileSave",
+      "matcher": "^throttle/.*\\.kt$|/throttle/.*\\.kt$",
+      "action": {
+        "type": "command",
+        "command": "./gradlew :throttle:testDebugUnitTest --no-daemon -q"
+      },
+      "timeout": 600
+    }
+  ]
+}

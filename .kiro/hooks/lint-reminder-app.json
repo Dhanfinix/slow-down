@@ -1,0 +1,24 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Lint and test reminder for app code",
+      "description": "Remind the agent to run lint and the app tests after UI or logic changes. One Gradle command at a time.",
+      "trigger": "PostFileSave",
+      "matcher": "app/.*\\.kt$",
+      "action": {
+        "type": "agent",
+        "prompt": "An app/ Kotlin file changed. Before you finish, run ./gradlew :app:testDebugUnitTest --no-daemon, then ./gradlew lintDebug --no-daemon, one at a time. If the change touches the throttle (ThrottleCoordinator, ThrottleController use), say what was measured and what was not. Do not claim the throttle works without a number."
+      }
+    },
+    {
+      "name": "Throttle claim check",
+      "description": "Stop the agent from claiming speed results it did not measure.",
+      "trigger": "Stop",
+      "action": {
+        "type": "agent",
+        "prompt": "Check your last answer. If it says the throttle or detection works, name the test or measurement behind it. If there is none, say so plainly."
+      }
+    }
+  ]
+}
