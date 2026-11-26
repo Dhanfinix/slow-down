@@ -10,7 +10,7 @@ The dead technology is slow internet. Dial-up and 2G were a problem we fixed. He
 
 How it works: you pick watched apps, a time limit, a speed (32 to 1024 kbps, with Dial-up, 2G, 3G and Slow 4G presets) and a release time. The app watches foreground time. At the limit, a local VPN (no root, no server) slows only those apps. A notification has a Stop button. Nothing leaves the device.
 
-Measured on an emulator (`docs/REPORT-e2e.md`): a 384 kbps limit gave 387.4 kbps, a 128 kbps limit gave 127.0 kbps. Not tested on a physical phone.
+Measured on an emulator (`docs/REPORT-e2e.md`): a 384 kbps limit gave 387.4 kbps, a 128 kbps limit gave 127.0 kbps. On a real Moto g67 power 5G (Android 16, mobile data, `docs/REPORT-device.md`), a manual 384 kbps limit measured 387.0 and 383.6 kbps against a 22483 kbps baseline. Not checked on the phone: the automatic trigger, the notification Stop button, the boot receiver, battery kill and Wi-Fi.
 
 ## How I used Kiro
 I used Kiro in one simple way: **Kiro Crew, in conductor mode**. I used nothing else from Kiro.
@@ -55,7 +55,7 @@ I designed the UI in Google Stitch, outside Kiro. Kiro is not officially support
 ## Specs, steering and hooks
 These are in `.kiro/`. I want to be exact about them: **they were written after the build, from the build reports.** The git history shows the code commit before the `.kiro` commit. I did not drive the build with specs or hooks.
 
-- `.kiro/specs/` has two specs, `throttle-engine` and `doom-scroll-detection`, each with requirements, design and tasks. They describe what was built and measured. Open tasks are left unchecked (an extra latency test, a physical phone).
+- `.kiro/specs/` has two specs, `throttle-engine` and `doom-scroll-detection`, each with requirements, design and tasks. They describe what was built and measured. Open tasks are left unchecked (an extra latency test, the remaining phone checks).
 - `.kiro/steering/` has `product.md`, `tech.md` and `structure.md`. They record the rules the build followed: one Gradle command at a time, never claim the throttle works without a measurement, the `:throttle` API is a contract, never commit without the owner's go-ahead. They now guide any further Kiro work on this repo.
 - `.kiro/hooks/` has two hook files: run the `:throttle` tests when a `throttle/**/*.kt` file is saved, and remind the agent to run app tests and lint after an `app/**/*.kt` save. They follow the Kiro hook format. I have not run them in Kiro.
 
@@ -63,7 +63,7 @@ These are in `.kiro/`. I want to be exact about them: **they were written after 
 I did not use MCP servers. I did not use Powers. I did not use property-based testing: the tests are plain JUnit (42 tests: 22 in `:throttle`, 20 in `:app`). I did not compare IDE and CLI.
 
 ## What I would do next
-- Test on a physical phone, not only an emulator.
+- Finish the phone checks: automatic trigger, notification Stop, boot receiver, battery kill, Wi-Fi.
 - Add a latency test to the engine spec.
 - Run the specs and hooks in Kiro from the start of the next feature, so they drive the work.
 - Try a Stitch MCP route if Kiro gets support for it.

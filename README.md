@@ -15,6 +15,7 @@ The idea came from the author's commute. A slow connection made them stop scroll
 <img src="docs/readme/stats-light.png" width="170" alt="Stats (light)">
 <img src="docs/readme/stats-dark.png" width="170" alt="Stats (dark)">
 <img src="docs/readme/settings-light.png" width="170" alt="Settings">
+<img src="docs/readme/phone-slowed.png" width="170" alt="Slowed at 384 kbps on a real Moto g67 power 5G">
 </p>
 
 ## How it works
@@ -49,7 +50,7 @@ docs/       measured reports, screenshots
 `:app` depends on `:throttle`. Only `ThrottleCoordinator` calls the engine.
 
 ## Measured speed
-Emulator, Android 15 (API 35). 12 s HTTPS download per run. Source: [`docs/REPORT-e2e.md`](docs/REPORT-e2e.md).
+Tested on an emulator (Android 15, API 35) and on a real Moto g67 power 5G (Android 16, mobile data LTE, Private DNS `dns.adguard.com`). Timed HTTPS download per run. Sources: [`docs/REPORT-e2e.md`](docs/REPORT-e2e.md) (emulator, 12 s runs), [`docs/REPORT-device.md`](docs/REPORT-device.md) (phone).
 
 | Limit (kbps) | Measured (kbps) | Error |
 |---|---|---|
@@ -57,6 +58,16 @@ Emulator, Android 15 (API 35). 12 s HTTPS download per run. Source: [`docs/REPOR
 | 128 | 127.0 | -0.8% |
 | 384 | 387.4 and 388.1 | +0.9% / +1.1% |
 | 1024 | 1012.7 | -1.1% |
+
+Real phone (Moto g67 power 5G, mobile data), whole device, manual slow-down. Source: [`docs/REPORT-device.md`](docs/REPORT-device.md).
+
+| Limit (kbps) | Measured (kbps) | Error |
+|---|---|---|
+| none (baseline) | 22483 | |
+| 384 | 387.0 and 383.6 | +0.8% / -0.1% |
+| after Stop | 18107 | mobile data varies; VPN was gone |
+
+No crash in `logcat -b crash` during the phone run.
 
 A real doom-scroll run with YouTube (threshold 5 min, release 1 min): the throttle started by itself after about 5 min, covered only YouTube's uid, and ended 1 to 2 min after leaving the app. 42 JVM tests pass (22 engine, 20 app).
 
@@ -75,9 +86,10 @@ On first run the onboarding asks for three permissions:
 3. **Usage access** (Settings page). Without it only manual slow-down works.
 
 ## Limitations
-- Tested on one emulator (API 35). Not tested on a physical phone.
+- Tested on one emulator (API 35) and one phone (Moto g67 power 5G, Android 16, mobile data). Not checked on the phone: the automatic doom-scroll trigger, the notification Stop button, the boot receiver, the release cooldown, battery kill by Moto, and Wi-Fi.
+- Moto tip: set the app's battery setting to Unrestricted. Moto battery management was not tested and may stop the watcher.
 - IPv6 is blocked for covered apps, so an IPv6-only network will not work.
-- No DNS servers are set on the VPN. Private DNS with a hostname is untested.
+- No DNS servers are set on the VPN. Private DNS with a hostname (`dns.adguard.com`) worked on the Moto.
 - Changing "What to slow" in Settings does not affect a throttle already running.
 - Only one TCP stream was measured. QUIC, parallel streams and extra latency were not tested.
 - YouTube's own speed under the limit was not measured. Per-app proof is the VPN uid list.
