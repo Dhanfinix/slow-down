@@ -43,7 +43,7 @@ app/        Compose UI (Material 3 Expressive), detection, DataStore
   logic/    DoomScrollDetector (pure Kotlin), WatchEngine, ThrottleCoordinator
   watch/    WatcherService, UsageEventsReader, Notifier, receivers
 throttle/   Android library, no UI: RelayEngine, TcpSession, TokenBucket, SlowDownVpnService
-.kiro/      specs, steering, hooks used to build this project
+.kiro/      specs, steering, hooks (written after the build)
 docs/       measured reports, screenshots
 ```
 `:app` depends on `:throttle`. Only `ThrottleCoordinator` calls the engine.
@@ -84,7 +84,7 @@ On first run the onboarding asks for three permissions:
 - The release build is unsigned and not minified. Play Store needs a "special use" foreground service declaration.
 
 ## Built with Kiro
-Specs, steering and hooks are in [`.kiro/`](.kiro). How Kiro was used: [`docs/KIRO_WRITEUP.md`](docs/KIRO_WRITEUP.md).
+Built with Kiro Crew in conductor mode: one goal, work items, a worker session per item, and independent verifier workers. The UI was designed in Google Stitch and imported by hand as a zip. The specs, steering and hooks in [`.kiro/`](.kiro) were written after the build. Details: [`docs/KIRO_WRITEUP.md`](docs/KIRO_WRITEUP.md).
 
 ## License
 [MIT](LICENSE)
