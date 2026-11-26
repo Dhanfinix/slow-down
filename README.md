@@ -18,6 +18,26 @@ The idea came from the author's commute. A slow connection made them stop scroll
 <img src="docs/readme/phone-slowed.png" width="170" alt="Slowed at 384 kbps on a real Moto g67 power 5G">
 </p>
 
+## Download / try it
+**[Download slow-down-v1.0.0.apk](https://github.com/Dhanfinix/slow-down/releases/tag/v1.0.0)** (2.5 MB, Android 8.0 or newer)
+
+SHA-256: `01361b0ce399e6745b9338ba558b3178e288b8d641c31ddc9410b4310e8ead6d`
+
+1. Download the APK on your phone.
+2. Open it and allow installs from this source if Android asks.
+3. Open Slow Down and go through the intro.
+4. Grant the permissions below.
+
+| Permission | Why |
+|---|---|
+| VPN connection (required) | Slows traffic. Runs on the phone, nothing leaves it. |
+| Notifications (recommended) | Shows "Slowing down" with a Stop button. |
+| Usage access (optional) | Lets the app see which app is in front, for the automatic trigger. |
+
+The APK is signed with a self-generated key. Play Protect may warn about it. That is normal for sideloaded apps.
+
+**See it work in 2 minutes:** Settings, set the speed to 128 kbps. Home, tap **Slow me down now**. Open any website or video. It crawls. Tap **Stop slowing** and it is fast again.
+
 ## How it works
 1. You pick watched apps, a time limit (5 to 120 min), a speed (32 to 1024 kbps) and a release time (1 to 30 min).
 2. A foreground service reads `UsageStatsManager` events every 15 s and tracks how long you stay in a watched app.
@@ -93,7 +113,7 @@ On first run the onboarding asks for three permissions:
 - Changing "What to slow" in Settings does not affect a throttle already running.
 - Only one TCP stream was measured. QUIC, parallel streams and extra latency were not tested.
 - YouTube's own speed under the limit was not measured. Per-app proof is the VPN uid list.
-- The release build is unsigned and not minified. Play Store needs a "special use" foreground service declaration.
+- The release APK is signed with a self-generated key (not a Play Store upload key) and R8 is on. Play Store needs a "special use" foreground service declaration.
 
 ## Built with Kiro
 Built with Kiro Crew in conductor mode: one goal, work items, a worker session per item, and independent verifier workers. The UI was designed in Google Stitch and imported by hand as a zip. The specs, steering and hooks in [`.kiro/`](.kiro) were written after the build. Details: [`docs/KIRO_WRITEUP.md`](docs/KIRO_WRITEUP.md).
